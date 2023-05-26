@@ -29,8 +29,7 @@ public class LimpezaApp {
 	private int inicio;
 	
 	public LimpezaApp() {
-		this.salas = new ArrayList<Sala>();
-		//this.ambiente = new int [3][3];		
+		this.salas = new ArrayList<Sala>();				
 		this.inicio = 1;
 	}
 
@@ -148,5 +147,4 @@ public class LimpezaApp {
 
 	}
 	
-
 }
