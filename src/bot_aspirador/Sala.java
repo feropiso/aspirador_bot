@@ -30,8 +30,5 @@ public class Sala {
 	public void setAspiradorPresente(boolean aspiradorPresente) {
 		this.aspiradorPresente = aspiradorPresente;
 	}
-	
-	
-	
 
 }
