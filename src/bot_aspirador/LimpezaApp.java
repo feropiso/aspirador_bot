@@ -29,7 +29,7 @@ public class LimpezaApp {
 	private int inicio;
 	
 	public LimpezaApp() {
-		this.salas = new ArrayList<Sala>();				
+		this.salas = new ArrayList<Sala>();			
 		this.inicio = 1;
 	}
 
@@ -37,6 +37,9 @@ public class LimpezaApp {
 		
 		inicio = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe a sala que o aspirador ira começar:", 
                 "Salas de [1-9]", JOptionPane.INFORMATION_MESSAGE));
+		
+		inicio = inicio - 1;
+		
 		
 		for(int i = 1; i <= 9; i++) {
 			
@@ -55,7 +58,7 @@ public class LimpezaApp {
 			sala.setAspiradorPresente(false);
 			sala.setNumero(i);
 			salas.add(sala);			
-		}
+		}		
 		
 		salas.get(inicio).setAspiradorPresente(true);		
 	
@@ -94,23 +97,35 @@ public class LimpezaApp {
 		int sala_aspirador = inicio;
 		
 		Sala sala = salas.get(sala_aspirador);
-		
+				
 		while (contador < 9) {
 			
-
 			if (sala.isSujo()) {
 				
-				System.out.println("A sala "+sala.getNumero()+" esta suja! Comecando a limpeza...");
+				int s = sala.getNumero();
+				
+				System.out.println("A sala "+s+" esta suja! Comecando a limpeza...");
 				
 				sala.setSujo(false);
 				
-				System.out.println("A sala "+sala.getNumero()+" agora esta limpa! Indo para a proxima sala...");
+				if(s < 9)
+					System.out.println("A sala "+s+" agora esta limpa! Indo para a proxima sala...");
+				
+				else
+					System.out.println("A sala "+s+" agora esta limpa!");
 				
 				sala.setAspiradorPresente(false);
 				
 			}
 			else {
-				System.out.println("A sala "+sala.getNumero()+" ja esta limpa! Indo para a proxima sala...");
+				
+				int s = sala.getNumero();
+				
+				if(s < 9)
+					System.out.println("A sala "+s+" ja esta limpa! Indo para a proxima sala...");
+				
+				else
+					System.out.println("A sala "+s+" ja esta limpa!");
 				
 				sala.setAspiradorPresente(false);
 			}
@@ -147,4 +162,6 @@ public class LimpezaApp {
 
 	}
 	
+
 }
+
